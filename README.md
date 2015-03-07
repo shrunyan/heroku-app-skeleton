@@ -5,8 +5,6 @@ Skeleton application which solves global `require` locally and on Heroku.  Using
 
 __Backbone/Marionette/Browserify__ 
 
-^Clusterfuck
-
 Ensure we have dependencies between Backbone & Marionette configured properly for Browserify so when it builds it will all work. _Assigning these libs and more to `window` on `entry.js` file_ so they are globally available thorughout our application runtime. This way we don't have to define the dependecy at the start of every file, cause we'd have to do that  __alot__.
 
 __Pay attention to versions, they are extremely important to get this to work right.__
