@@ -4,17 +4,16 @@
   "version": "0.0.1",
   "author": "shrunyan",
   "scripts": {
-    "start": "npm run watch & npm run serve & livereload",
+    "start": "npm run watch & npm run serve",
     "postinstall": "npm run build",
     "build": "npm run clean && npm run build-js && npm run build-css",
     "build-js": "browserify -t hbsfy app/node_modules/client/entry.js | uglifyjs -mc > dist/bundle.js",
     "build-css": "cat app/node_modules/public/styles/*.less | lessc - > dist/styles.css",
-    "clean": "rm -rf dist && mkdir dist",
+    "clean": "rm -rf dist/ && mkdir dist/",
     "serve": "iojs app/node_modules/server/server.js",
     "watch": "npm run watch-js & npm run watch-css",
     "watch-js": "watchify -t hbsfy app/node_modules/client/entry.js -o dist/bundle.js -dv",
-    "watch-css": "catw -c 'lessc -' app/node_modules/public/styles/*.less -o dist/styles.css",
-    "livereload": "live-reload ./dist/ --port=9091"
+    "watch-css": "catw -c 'lessc -' app/node_modules/public/styles/*.less -o dist/styles.css -dv"
   },
   "dependencies": {
     "backbone": "1.1.1",
@@ -36,7 +35,7 @@
   },
   "devDependencies": {
     "catw": "^0.2.0",
-    "live-reload": "^1.0.0",
+    "livereload2": "^1.0.1",
     "watchify": "^2.4.0"
   }
 }
