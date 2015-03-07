@@ -1,1 +1,4 @@
-{}
+{
+	"name": "heroku-app-skeleton",
+	"description": "Skeleton application for deploying on Heroku. Using Backbone, Marionette and their dependencies.",
+}

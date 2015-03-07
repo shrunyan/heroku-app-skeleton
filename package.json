@@ -4,25 +4,39 @@
   "version": "0.0.1",
   "author": "shrunyan",
   "scripts": {
-    "start": "npm install && npm run serve && npm run watch",
+    "start": "npm run watch & npm run serve & livereload",
     "postinstall": "npm run build",
-    "build": "npm run clean && npm run build-js && build-css",
-    "build-js": "",
-    "build-css": "",
+    "build": "npm run clean && npm run build-js && npm run build-css",
+    "build-js": "browserify -t hbsfy app/node_modules/client/entry.js | uglifyjs -mc > dist/bundle.js",
+    "build-css": "cat app/node_modules/public/styles/*.less | lessc - > dist/styles.css",
     "clean": "rm -rf dist && mkdir dist",
-    "server": "iojs app/node_modules/server/server.js",
-    "watch": ""
+    "serve": "iojs app/node_modules/server/server.js",
+    "watch": "npm run watch-js & npm run watch-css",
+    "watch-js": "watchify -t hbsfy app/node_modules/client/entry.js -o dist/bundle.js -dv",
+    "watch-css": "catw -c 'lessc -' app/node_modules/public/styles/*.less -o dist/styles.css",
+    "livereload": "live-reload ./dist/ --port=9091"
   },
   "dependencies": {
-    "backbone": "^1.1.2",
+    "backbone": "1.1.1",
     "backbone.babysitter": "^0.1.6",
     "backbone.marionette": "^2.4.1",
     "backbone.wreqr": "^1.3.1",
+    "body-parser": "^1.12.0",
     "browserify": "^9.0.3",
+    "ejs": "^2.3.1",
     "express": "^4.12.2",
+    "handlebars": "^3.0.0",
+    "hbsfy": "^2.2.1",
+    "http": "0.0.0",
     "jquery": "^2.1.3",
     "less": "^2.4.0",
     "mongoose": "^3.8.24",
+    "uglify-js": "^2.4.16",
     "underscore": "^1.8.2"
+  },
+  "devDependencies": {
+    "catw": "^0.2.0",
+    "live-reload": "^1.0.0",
+    "watchify": "^2.4.0"
   }
 }
