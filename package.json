@@ -1,8 +1,20 @@
 {
   "name": "heroku-app-skeleton",
-  "description": "Skeleton application for deploying on Heroku. Using Backbone, Marionette and their dependencies.",
   "version": "0.0.1",
+  "description": "Skeleton application for deploying on Heroku. Using Backbone, Marionette and their dependencies.",
+  "homepage": "http://shrunyan.github.io/heroku-app-skeleton/",
+  "bugs": {
+    "url": "https://github.com/shrunyan/heroku-app-skeleton/issues"
+  },
+  "license": "",
   "author": "shrunyan",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shrunyan/heroku-app-skeleton"
+  },
+  "engines": {
+    "iojs": "~1.5"
+  },
   "scripts": {
     "start": "npm run watch & npm run serve",
     "postinstall": "npm run build",
