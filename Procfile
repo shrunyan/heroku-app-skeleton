@@ -1,1 +1,1 @@
-web: iojs app/node_modules/server/server.js
+web: npm run serve
